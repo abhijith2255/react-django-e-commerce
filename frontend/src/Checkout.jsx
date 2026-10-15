@@ -32,7 +32,7 @@ function Checkout() {
     };
 
     // Django API-ലേക്ക് ഓർഡർ അയക്കുന്നു
-    axios.post('http://127.0.0.1:8000/api/orders/', orderData)
+    axios.post('https://ecommerce121.pythonanywhere.com/api/orders/', orderData)
       .then(response => {
         alert("🎉 നിങ്ങളുടെ ഓർഡർ വിജയകരമായി പ്ലേസ് ചെയ്തിരിക്കുന്നു!");
         clearCart(); // കാർട്ട് കാലിയാക്കുന്നു
