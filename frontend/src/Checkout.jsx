@@ -44,8 +44,10 @@ function Checkout() {
       });
   };
 
-  // കാർട്ടിൽ സാധനങ്ങളില്ലെങ്കിൽ
+  // കാർട്ടിൽ സാധനങ്ങളില്ലെങ്കിൽhf
   if (cart.length === 0) {
+
+
     return (
       <div className="min-h-screen flex items-center justify-center bg-slate-50">
         <div className="text-center">

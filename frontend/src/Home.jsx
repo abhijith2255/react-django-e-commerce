@@ -8,7 +8,8 @@ function Home() {
   const { cart, addToCart } = useContext(CartContext);
 
   useEffect(() => {
-    axios.get('https://ecommerce121.pythonanywhere.com//api/products/')
+    // നിങ്ങളുടെ ലൈവ് ലിങ്ക് ആണെങ്കിൽ അത് ഇവിടെ മാറ്റാൻ ശ്രദ്ധിക്കുക
+    axios.get('https://ecommerce121.pythonanywhere.com/api/products/')
       .then(response => setProducts(response.data))
       .catch(error => console.error("Error fetching products:", error));
   }, []);
@@ -16,14 +17,23 @@ function Home() {
   return (
     <div className="min-h-screen bg-slate-50 p-8 font-sans">
       <div className="max-w-6xl mx-auto">
-        {/* Header */}
+        
+        {/* Header - ഇവിടെയാണ് മാറ്റം വരുത്തിയിരിക്കുന്നത് */}
         <div className="flex justify-between items-center mb-10 bg-white p-5 rounded-xl shadow-sm">
           <h1 className="text-3xl font-extrabold text-blue-900 tracking-tight">Highmax Store</h1>
-          <Link to="/cart">
-            <button className="bg-slate-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-slate-700 transition-all">
-              🛒 Cart ({cart ? cart.length : 0})
-            </button>
-          </Link>
+          
+          <div className="flex items-center gap-6">
+            {/* ലോഗിൻ ചെയ്യാനുള്ള പുതിയ ലിങ്ക് */}
+            <Link to="/login" className="text-sm font-bold text-gray-500 hover:text-blue-600 transition-colors">
+              Admin Login 🔐
+            </Link>
+            
+            <Link to="/cart">
+              <button className="bg-slate-800 text-white px-5 py-2 rounded-lg font-medium hover:bg-slate-700 transition-all">
+                🛒 Cart ({cart ? cart.length : 0})
+              </button>
+            </Link>
+          </div>
         </div>
         
         {/* Products Grid */}
