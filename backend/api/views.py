@@ -1,11 +1,14 @@
 from rest_framework import generics
-from .models import Product, Order # Order ചേർത്തു
-from .serializers import ProductSerializer, OrderSerializer # OrderSerializer ചേർത്തു
+from rest_framework.permissions import IsAuthenticatedOrReadOnly # പുതിയത്
+from .models import Product, Order
+from .serializers import ProductSerializer, OrderSerializer
 
-class ProductList(generics.ListAPIView):
+class ProductList(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [IsAuthenticatedOrReadOnly] # ലോഗിൻ സുരക്ഷ നൽകുന്നു
 
+# ബാക്കിയുള്ളവ പഴയതുപോലെ തന്നെ...
 class ProductDetail(generics.RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
