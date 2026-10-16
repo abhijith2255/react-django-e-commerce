@@ -7,4 +7,5 @@ urlpatterns = [
     path('products/<int:pk>/', ProductDetail.as_view(), name='product-detail'),
     path('orders/', OrderCreate.as_view(), name='order-create'),
     path('login/', obtain_auth_token, name='api_token_auth'), # ലോഗിൻ ചെയ്യാനുള്ള ലിങ്ക്
+    path('api/token/', obtain_auth_token, name='api_token_auth'),
 ]
